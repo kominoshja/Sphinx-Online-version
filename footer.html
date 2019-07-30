@@ -1,0 +1,28 @@
+<footer>
+  {% if (theme_prev_next_buttons_location == 'bottom' or theme_prev_next_buttons_location == 'both') and (next or prev) %}
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      {% if next %}
+        <a href="{{ next.link|e }}" class="btn btn-neutral float-right" title="{{ next.title|striptags|e }}" accesskey="n" rel="next">{{ _('Tjetra') }} <span class="fa fa-arrow-circle-right"></span></a>
+      {% endif %}
+      {% if prev %}
+        <a href="{{ prev.link|e }}" class="btn btn-neutral float-left" title="{{ prev.title|striptags|e }}" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> {{ _('Më përpara') }}</a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        {% trans copyright=copyright|e %} <a href="https://creativecommons.org/licenses/by-sa/4.0/">Përmbajtja nën CC-BY-SA 4.0</a> {{ copyright }}{% endtrans %}
+
+      <span class="lastupdated">
+        {% trans last_updated=last_updated|e %}<br />Përditësuar për herë të fundit në {{ last_updated }}.{% endtrans %}
+      </span>
+
+  {% trans %}<br />Ndërtuar me <a href="http://sphinx-doc.org/">Sphinx</a> duke përdorur një <a href="https://github.com/rtfd/sphinx_rtd_theme">ndërfaqe</a> nga <a href="https://readthedocs.org">Read the Docs</a>{% endtrans %}.
+  <br />{%- block extrafooter %} {% endblock %}
+
+  </div>
+</footer>
+
